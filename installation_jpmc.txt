@@ -1,0 +1,20 @@
+1. Each partiticipants must have one system(windows/linux/mac) with preinstalled python to work on 
+2. Mode of virtual training is workshop, It is expected that each participant works examples along with instructor 
+   Without python installed on the system, participants would be unable to follow all modules
+   Download Anaconda2 or Anaconda3 and notepad++ from your internal software server(FAST)
+   Note: Python installation takes long time, hence it should be tried offline as minimum time in training would be spent for  troubleshooting installation
+3.Open a command promt(cmd) and type 'python'
+  If it does not work(gives some error message), mostly environment variable PATH is not updated during installation.
+  Find out the installation path of Ananconda/python manually from computer
+  and note down that path and use that in command line
+  eg if Python is installed in C:\FAST\python3.6 , type 'C:\FAST\python3.6\python' in command prompt 
+  Some common locations where Anaconda might be installed  , check for python.exe 
+    C:\ProgramData\Anaconda3
+    C:\Users\User-Name\AppData\Local\Continuum\Anaconda2
+    C:\FAST
+    C:\Users\User-Name\Anaconda3
+    
+    
+4. Download below reference documents 
+   https://github.com/ndas1971/PyQs/blob/master/python-initial-reference.zip  
+
