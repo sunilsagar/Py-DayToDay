@@ -11,7 +11,7 @@
 s = "Hello World"
 
 #Take each character(ch1) from s 
-for ch1 in s:
+for ch1 in set(s):
     #initialize counter 
     counter = 0
     #Take each character(ch2) from s
@@ -26,15 +26,15 @@ for ch1 in s:
 
 
 ### Data structure 
-[]    list - Duplictes - P , Indexing - P, Insertion ordered- P , Mutable
-()         tuple - immutable list 
+# []    list - Duplictes - P , Indexing - P, Insertion ordered- P , Mutable
+# ()         tuple - immutable list 
     
-{}    set - Duplictes - NP, Indexing - NP, Insertion ordered- NP, Mutable 
-       frozenset - immutable set 
+# {}    set - Duplictes - NP, Indexing - NP, Insertion ordered- NP, Mutable 
+       # frozenset - immutable set 
        
-------------------------
-{} dict -  Key: Value - All Keys are like set , Value can be anything
+# ------------------------
+# {} dict -  Key: Value - All Keys are like set , Value can be anything
 
-
-
+list searching - O(N)
+dict searching - O(1)
 
