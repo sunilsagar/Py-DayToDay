@@ -1,0 +1,559 @@
+D:\handson>python
+Python 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64 bit
+(AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import glob
+>>> glob.glob(r"data/*")
+['data\\boston.csv', 'data\\empty_book.xlsx', 'data\\example-handson.csv', 'data
+\\example-handson.xml', 'data\\example.csv', 'data\\example.docx', 'data\\exampl
+e.html', 'data\\example.json', 'data\\example.pdf', 'data\\example.pptx', 'data\
+\example.xml', 'data\\example1.html', 'data\\example1.pdf', 'data\\example1.xml'
+, 'data\\having-chart-placeholder.pptx', 'data\\having-table-placeholder.pptx',
+'data\\iris.csv', 'data\\monty-truth.png', 'data\\Nifty-17_Years_Data-V1.xlsx',
+'data\\population.csv', 'data\\python_logo.png', 'data\\q.html', 'data\\sales_tr
+ansactions.xlsx', 'data\\ver.csv', 'data\\watermark.pdf', 'data\\window.csv', 'd
+ata\\WindowsUpdate.log']
+>>> glob.glob(r"D:\handson\data\*")
+['D:\\handson\\data\\boston.csv', 'D:\\handson\\data\\empty_book.xlsx', 'D:\\han
+dson\\data\\example-handson.csv', 'D:\\handson\\data\\example-handson.xml', 'D:\
+\handson\\data\\example.csv', 'D:\\handson\\data\\example.docx', 'D:\\handson\\d
+ata\\example.html', 'D:\\handson\\data\\example.json', 'D:\\handson\\data\\examp
+le.pdf', 'D:\\handson\\data\\example.pptx', 'D:\\handson\\data\\example.xml', 'D
+:\\handson\\data\\example1.html', 'D:\\handson\\data\\example1.pdf', 'D:\\handso
+n\\data\\example1.xml', 'D:\\handson\\data\\having-chart-placeholder.pptx', 'D:\
+\handson\\data\\having-table-placeholder.pptx', 'D:\\handson\\data\\iris.csv', '
+D:\\handson\\data\\monty-truth.png', 'D:\\handson\\data\\Nifty-17_Years_Data-V1.
+xlsx', 'D:\\handson\\data\\population.csv', 'D:\\handson\\data\\python_logo.png'
+, 'D:\\handson\\data\\q.html', 'D:\\handson\\data\\sales_transactions.xlsx', 'D:
+\\handson\\data\\ver.csv', 'D:\\handson\\data\\watermark.pdf', 'D:\\handson\\dat
+a\\window.csv', 'D:\\handson\\data\\WindowsUpdate.log']
+>>> dir(glob)
+['__all__', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '
+__name__', '__package__', '__spec__', '_glob0', '_glob1', '_glob2', '_iglob', '_
+ishidden', '_isrecursive', '_iterdir', '_rlistdir', 'escape', 'fnmatch', 'glob',
+ 'glob0', 'glob1', 'has_magic', 'iglob', 'magic_check', 'magic_check_bytes', 'os
+', 're']
+>>> import glob
+>>> glob.glob(r"D:\handson\data\*.csv")
+['D:\\handson\\data\\boston.csv', 'D:\\handson\\data\\example-handson.csv', 'D:\
+\handson\\data\\example.csv', 'D:\\handson\\data\\iris.csv', 'D:\\handson\\data\
+\population.csv', 'D:\\handson\\data\\ver.csv', 'D:\\handson\\data\\window.csv']
+
+>>> f = open(r"data\iris.csv", "rt")
+>>> lines = f.readlines()
+>>> f.close()
+>>> with open(r"data\iris.csv", "rt") as f:
+...     lines = f.readlines()
+...
+>>> with open(r"data\iris.csv", "rt") as f:
+...     lines = f.readlines()
+...     with open(r"data\iris.csv.bk", "wt") as f2:
+...             f2.writelines(lines)
+...
+>>> glob.glob(r"D:\handson\data\*.csv.bk")
+['D:\\handson\\data\\iris.csv.bk']
+>>> import os.path
+>>> os.path.getsize('D:\\handson\\data\\iris.csv.bk')
+4750
+>>> os.path.getsize('D:\\handson\\data\\iris.csv')
+4600
+>>> import shutil
+>>> dir(shutil)
+['Error', 'ExecError', 'ReadError', 'RegistryError', 'SameFileError', 'SpecialFi
+leError', '_ARCHIVE_FORMATS', '_BZ2_SUPPORTED', '_LZMA_SUPPORTED', '_UNPACK_FORM
+ATS', '_ZLIB_SUPPORTED', '__all__', '__builtins__', '__cached__', '__doc__', '__
+file__', '__loader__', '__name__', '__package__', '__spec__', '_basename', '_che
+ck_unpack_options', '_copyxattr', '_destinsrc', '_ensure_directory', '_find_unpa
+ck_format', '_get_gid', '_get_uid', '_make_tarball', '_make_zipfile', '_ntuple_d
+iskusage', '_rmtree_safe_fd', '_rmtree_unsafe', '_samefile', '_unpack_tarfile',
+'_unpack_zipfile', '_use_fd_functions', 'chown', 'collections', 'copy', 'copy2',
+ 'copyfile', 'copyfileobj', 'copymode', 'copystat', 'copytree', 'disk_usage', 'e
+rrno', 'fnmatch', 'get_archive_formats', 'get_terminal_size', 'get_unpack_format
+s', 'getgrnam', 'getpwnam', 'ignore_patterns', 'make_archive', 'move', 'nt', 'os
+', 'register_archive_format', 'register_unpack_format', 'rmtree', 'stat', 'sys',
+ 'unpack_archive', 'unregister_archive_format', 'unregister_unpack_format', 'whi
+ch']
+>>> type(f)
+<class '_io.TextIOWrapper'>
+>>> dir(f)
+['_CHUNK_SIZE', '__class__', '__del__', '__delattr__', '__dict__', '__dir__', '_
+_doc__', '__enter__', '__eq__', '__exit__', '__format__', '__ge__', '__getattrib
+ute__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '
+__iter__', '__le__', '__lt__', '__ne__', '__new__', '__next__', '__reduce__', '_
+_reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclassho
+ok__', '_checkClosed', '_checkReadable', '_checkSeekable', '_checkWritable', '_f
+inalizing', 'buffer', 'close', 'closed', 'detach', 'encoding', 'errors', 'fileno
+', 'flush', 'isatty', 'line_buffering', 'mode', 'name', 'newlines', 'read', 'rea
+dable', 'readline', 'readlines', 'reconfigure', 'seek', 'seekable', 'tell', 'tru
+ncate', 'writable', 'write', 'write_through', 'writelines']
+>>> type(lines)
+<class 'list'>
+>>> lines[0:5]
+['SepalLength,SepalWidth,PetalLength,PetalWidth,Name\n', '5.1,3.5,1.4,0.2,Iris-s
+etosa\n', '4.9,3.0,1.4,0.2,Iris-setosa\n', '4.7,3.2,1.3,0.2,Iris-setosa\n', '4.6
+,3.1,1.5,0.2,Iris-setosa\n']
+>>> len("\n")
+1
+>>> len(r"\n")
+2
+>>> len(lines)
+151
+>>> out = set()
+>>> lns = lines[1:]
+>>> len(lns)
+150
+>>> e = '4.9,3.0,1.4,0.2,Iris-setosa\n'
+>>> e.strip().split(",")[-1]
+'Iris-setosa'
+>>> for e in lns:
+...     out.add( e.strip().split(",")[-1])
+...
+>>> out
+{'Iris-setosa', 'Iris-versicolor', 'Iris-virginica'}
+>>> len(out)
+3
+>>> import pandas as pd
+>>> import numpy as np
+>>> df = pd.read_csv(r"data\iris.csv")
+>>> np.unique(df['Name'])
+array(['Iris-setosa', 'Iris-versicolor', 'Iris-virginica'], dtype=object)
+>>>
+>>> import math
+>>> dir(math)
+['__doc__', '__loader__', '__name__', '__package__', '__spec__', 'acos', 'acosh'
+, 'asin', 'asinh', 'atan', 'atan2', 'atanh', 'ceil', 'copysign', 'cos', 'cosh',
+'degrees', 'e', 'erf', 'erfc', 'exp', 'expm1', 'fabs', 'factorial', 'floor', 'fm
+od', 'frexp', 'fsum', 'gamma', 'gcd', 'hypot', 'inf', 'isclose', 'isfinite', 'is
+inf', 'isnan', 'ldexp', 'lgamma', 'log', 'log10', 'log1p', 'log2', 'modf', 'nan'
+, 'pi', 'pow', 'radians', 'remainder', 'sin', 'sinh', 'sqrt', 'tan', 'tanh', 'ta
+u', 'trunc']
+>>> import datetime
+>>> dir(datetime)
+['MAXYEAR', 'MINYEAR', '__builtins__', '__cached__', '__doc__', '__file__', '__l
+oader__', '__name__', '__package__', '__spec__', 'date', 'datetime', 'datetime_C
+API', 'sys', 'time', 'timedelta', 'timezone', 'tzinfo']
+>>> import time
+>>> dir(time)
+['_STRUCT_TM_ITEMS', '__doc__', '__loader__', '__name__', '__package__', '__spec
+__', 'altzone', 'asctime', 'clock', 'ctime', 'daylight', 'get_clock_info', 'gmti
+me', 'localtime', 'mktime', 'monotonic', 'monotonic_ns', 'perf_counter', 'perf_c
+ounter_ns', 'process_time', 'process_time_ns', 'sleep', 'strftime', 'strptime',
+'struct_time', 'thread_time', 'thread_time_ns', 'time', 'time_ns', 'timezone', '
+tzname']
+>>> time.sleep(1)
+>>> import sys
+>>> dir(sys)
+['__breakpointhook__', '__displayhook__', '__doc__', '__excepthook__', '__intera
+ctivehook__', '__loader__', '__name__', '__package__', '__spec__', '__stderr__',
+ '__stdin__', '__stdout__', '_base_executable', '_clear_type_cache', '_current_f
+rames', '_debugmallocstats', '_enablelegacywindowsfsencoding', '_framework', '_g
+etframe', '_git', '_home', '_xoptions', 'api_version', 'argv', 'base_exec_prefix
+', 'base_prefix', 'breakpointhook', 'builtin_module_names', 'byteorder', 'call_t
+racing', 'callstats', 'copyright', 'displayhook', 'dllhandle', 'dont_write_bytec
+ode', 'exc_info', 'excepthook', 'exec_prefix', 'executable', 'exit', 'flags', 'f
+loat_info', 'float_repr_style', 'get_asyncgen_hooks', 'get_coroutine_origin_trac
+king_depth', 'get_coroutine_wrapper', 'getallocatedblocks', 'getcheckinterval',
+'getdefaultencoding', 'getfilesystemencodeerrors', 'getfilesystemencoding', 'get
+profile', 'getrecursionlimit', 'getrefcount', 'getsizeof', 'getswitchinterval',
+'gettrace', 'getwindowsversion', 'hash_info', 'hexversion', 'implementation', 'i
+nt_info', 'intern', 'is_finalizing', 'maxsize', 'maxunicode', 'meta_path', 'modu
+les', 'path', 'path_hooks', 'path_importer_cache', 'platform', 'prefix', 'ps1',
+'ps2', 'set_asyncgen_hooks', 'set_coroutine_origin_tracking_depth', 'set_corouti
+ne_wrapper', 'setcheckinterval', 'setprofile', 'setrecursionlimit', 'setswitchin
+terval', 'settrace', 'stderr', 'stdin', 'stdout', 'thread_info', 'version', 'ver
+sion_info', 'warnoptions', 'winver']
+>>> sys.version
+'3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64 bit (AMD64
+)]'
+>>> sys.stdin
+<_io.TextIOWrapper name='<stdin>' mode='r' encoding='utf-8'>
+>>> sys.stdout
+<_io.TextIOWrapper name='<stdout>' mode='w' encoding='utf-8'>
+>>> sys.stderr
+<_io.TextIOWrapper name='<stderr>' mode='w' encoding='utf-8'>
+>>> quit()
+
+D:\handson>dir mex.py
+ Volume in drive D is LENOVO
+ Volume Serial Number is 0299-ED51
+
+ Directory of D:\handson
+
+30-07-2020  12:22               126 mex.py
+               1 File(s)            126 bytes
+               0 Dir(s)   5,895,155,712 bytes free
+
+D:\handson>python
+Python 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64 bit
+(AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import mex
+>>> mex.sqaure(100)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: module 'mex' has no attribute 'sqaure'
+>>> mex.square(100)
+10000
+>>> import mex
+>>> mex.square(100)
+10000
+>>> help(mex.square)
+Help on function square in module mex:
+
+square(x)
+    Square function takes
+    a number and returns sqaure of that number
+
+>>> quit()
+
+D:\handson>python
+Python 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64 bit
+(AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import mex
+>>> mex.square(100)
+10000
+>>> help(mex.square)
+Help on function square in module mex:
+
+square(x)
+    Square function takes
+    a number and returns sqaure of that number
+
+>>> dir(mex)
+['__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__',
+'__package__', '__spec__', 'square']
+>>> mex.__dict__
+{'__name__': 'mex', '__doc__': None, '__package__': '', '__loader__': <_frozen_i
+mportlib_external.SourceFileLoader object at 0x000000F8D3B1B4C8>, '__spec__': Mo
+duleSpec(name='mex', loader=<_frozen_importlib_external.SourceFileLoader object
+at 0x000000F8D3B1B4C8>, origin='D:\\handson\\mex.py'), '__file__': 'D:\\handson\
+\mex.py', '__cached__': 'D:\\handson\\__pycache__\\mex.cpython-37.pyc', '__built
+ins__': {'__name__': 'builtins', '__doc__': "Built-in functions, exceptions, and
+ other objects.\n\nNoteworthy: None is the `nil' object; Ellipsis represents `..
+.' in slices.", '__package__': '', '__loader__': <class '_frozen_importlib.Built
+inImporter'>, '__spec__': ModuleSpec(name='builtins', loader=<class '_frozen_imp
+ortlib.BuiltinImporter'>), '__build_class__': <built-in function __build_class__
+>, '__import__': <built-in function __import__>, 'abs': <built-in function abs>,
+ 'all': <built-in function all>, 'any': <built-in function any>, 'ascii': <built
+-in function ascii>, 'bin': <built-in function bin>, 'breakpoint': <built-in fun
+ction breakpoint>, 'callable': <built-in function callable>, 'chr': <built-in fu
+nction chr>, 'compile': <built-in function compile>, 'delattr': <built-in functi
+on delattr>, 'dir': <built-in function dir>, 'divmod': <built-in function divmod
+>, 'eval': <built-in function eval>, 'exec': <built-in function exec>, 'format':
+ <built-in function format>, 'getattr': <built-in function getattr>, 'globals':
+<built-in function globals>, 'hasattr': <built-in function hasattr>, 'hash': <bu
+ilt-in function hash>, 'hex': <built-in function hex>, 'id': <built-in function
+id>, 'input': <built-in function input>, 'isinstance': <built-in function isinst
+ance>, 'issubclass': <built-in function issubclass>, 'iter': <built-in function
+iter>, 'len': <built-in function len>, 'locals': <built-in function locals>, 'ma
+x': <built-in function max>, 'min': <built-in function min>, 'next': <built-in f
+unction next>, 'oct': <built-in function oct>, 'ord': <built-in function ord>, '
+pow': <built-in function pow>, 'print': <built-in function print>, 'repr': <buil
+t-in function repr>, 'round': <built-in function round>, 'setattr': <built-in fu
+nction setattr>, 'sorted': <built-in function sorted>, 'sum': <built-in function
+ sum>, 'vars': <built-in function vars>, 'None': None, 'Ellipsis': Ellipsis, 'No
+tImplemented': NotImplemented, 'False': False, 'True': True, 'bool': <class 'boo
+l'>, 'memoryview': <class 'memoryview'>, 'bytearray': <class 'bytearray'>, 'byte
+s': <class 'bytes'>, 'classmethod': <class 'classmethod'>, 'complex': <class 'co
+mplex'>, 'dict': <class 'dict'>, 'enumerate': <class 'enumerate'>, 'filter': <cl
+ass 'filter'>, 'float': <class 'float'>, 'frozenset': <class 'frozenset'>, 'prop
+erty': <class 'property'>, 'int': <class 'int'>, 'list': <class 'list'>, 'map':
+<class 'map'>, 'object': <class 'object'>, 'range': <class 'range'>, 'reversed':
+ <class 'reversed'>, 'set': <class 'set'>, 'slice': <class 'slice'>, 'staticmeth
+od': <class 'staticmethod'>, 'str': <class 'str'>, 'super': <class 'super'>, 'tu
+ple': <class 'tuple'>, 'type': <class 'type'>, 'zip': <class 'zip'>, '__debug__'
+: True, 'BaseException': <class 'BaseException'>, 'Exception': <class 'Exception
+'>, 'TypeError': <class 'TypeError'>, 'StopAsyncIteration': <class 'StopAsyncIte
+ration'>, 'StopIteration': <class 'StopIteration'>, 'GeneratorExit': <class 'Gen
+eratorExit'>, 'SystemExit': <class 'SystemExit'>, 'KeyboardInterrupt': <class 'K
+eyboardInterrupt'>, 'ImportError': <class 'ImportError'>, 'ModuleNotFoundError':
+ <class 'ModuleNotFoundError'>, 'OSError': <class 'OSError'>, 'EnvironmentError'
+: <class 'OSError'>, 'IOError': <class 'OSError'>, 'WindowsError': <class 'OSErr
+or'>, 'EOFError': <class 'EOFError'>, 'RuntimeError': <class 'RuntimeError'>, 'R
+ecursionError': <class 'RecursionError'>, 'NotImplementedError': <class 'NotImpl
+ementedError'>, 'NameError': <class 'NameError'>, 'UnboundLocalError': <class 'U
+nboundLocalError'>, 'AttributeError': <class 'AttributeError'>, 'SyntaxError': <
+class 'SyntaxError'>, 'IndentationError': <class 'IndentationError'>, 'TabError'
+: <class 'TabError'>, 'LookupError': <class 'LookupError'>, 'IndexError': <class
+ 'IndexError'>, 'KeyError': <class 'KeyError'>, 'ValueError': <class 'ValueError
+'>, 'UnicodeError': <class 'UnicodeError'>, 'UnicodeEncodeError': <class 'Unicod
+eEncodeError'>, 'UnicodeDecodeError': <class 'UnicodeDecodeError'>, 'UnicodeTran
+slateError': <class 'UnicodeTranslateError'>, 'AssertionError': <class 'Assertio
+nError'>, 'ArithmeticError': <class 'ArithmeticError'>, 'FloatingPointError': <c
+lass 'FloatingPointError'>, 'OverflowError': <class 'OverflowError'>, 'ZeroDivis
+ionError': <class 'ZeroDivisionError'>, 'SystemError': <class 'SystemError'>, 'R
+eferenceError': <class 'ReferenceError'>, 'MemoryError': <class 'MemoryError'>,
+'BufferError': <class 'BufferError'>, 'Warning': <class 'Warning'>, 'UserWarning
+': <class 'UserWarning'>, 'DeprecationWarning': <class 'DeprecationWarning'>, 'P
+endingDeprecationWarning': <class 'PendingDeprecationWarning'>, 'SyntaxWarning':
+ <class 'SyntaxWarning'>, 'RuntimeWarning': <class 'RuntimeWarning'>, 'FutureWar
+ning': <class 'FutureWarning'>, 'ImportWarning': <class 'ImportWarning'>, 'Unico
+deWarning': <class 'UnicodeWarning'>, 'BytesWarning': <class 'BytesWarning'>, 'R
+esourceWarning': <class 'ResourceWarning'>, 'ConnectionError': <class 'Connectio
+nError'>, 'BlockingIOError': <class 'BlockingIOError'>, 'BrokenPipeError': <clas
+s 'BrokenPipeError'>, 'ChildProcessError': <class 'ChildProcessError'>, 'Connect
+ionAbortedError': <class 'ConnectionAbortedError'>, 'ConnectionRefusedError': <c
+lass 'ConnectionRefusedError'>, 'ConnectionResetError': <class 'ConnectionResetE
+rror'>, 'FileExistsError': <class 'FileExistsError'>, 'FileNotFoundError': <clas
+s 'FileNotFoundError'>, 'IsADirectoryError': <class 'IsADirectoryError'>, 'NotAD
+irectoryError': <class 'NotADirectoryError'>, 'InterruptedError': <class 'Interr
+uptedError'>, 'PermissionError': <class 'PermissionError'>, 'ProcessLookupError'
+: <class 'ProcessLookupError'>, 'TimeoutError': <class 'TimeoutError'>, 'open':
+<built-in function open>, 'quit': Use quit() or Ctrl-Z plus Return to exit, 'exi
+t': Use exit() or Ctrl-Z plus Return to exit, 'copyright': Copyright (c) 2001-20
+19 Python Software Foundation.
+All Rights Reserved.
+
+Copyright (c) 2000 BeOpen.com.
+All Rights Reserved.
+
+Copyright (c) 1995-2001 Corporation for National Research Initiatives.
+All Rights Reserved.
+
+Copyright (c) 1991-1995 Stichting Mathematisch Centrum, Amsterdam.
+All Rights Reserved., 'credits':     Thanks to CWI, CNRI, BeOpen.com, Zope Corpo
+ration and a cast of thousands
+    for supporting Python development.  See www.python.org for more information.
+, 'license': Type license() to see the full license text, 'help': Type help() fo
+r interactive help, or help(object) for help about object., '_': None}, 'square'
+: <function square at 0x000000F8D1DA9558>}
+>>> import mex
+>>> mex.square(100)
+10000
+>>> import mex as m
+>>> m.square(100)
+10000
+>>> from mex import *
+>>> square(10)
+100
+>>> from mex import square
+>>> square(10)
+100
+>>> import mex
+>>> import sys
+>>> sys.path
+['', 'c:\\python37\\python37.zip', 'c:\\python37\\DLLs', 'c:\\python37\\lib', 'c
+:\\python37', 'c:\\python37\\lib\\site-packages', 'c:\\python37\\lib\\site-packa
+ges\\win32', 'c:\\python37\\lib\\site-packages\\win32\\lib', 'c:\\python37\\lib\
+\site-packages\\Pythonwin']
+>>> quit()
+
+D:\handson>python
+Python 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64 bit
+(AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import sys
+>>> sys.path = sys.path[1:]
+>>> import mex
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ModuleNotFoundError: No module named 'mex'
+>>> quit(0
+... )
+
+D:\handson>python
+Python 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64 bit
+(AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import mex
+>>> mex.square(100)
+10000
+>>> import sys
+>>> #which directory python searches for sys.py at first?
+>>> def add(x,y):
+...     return x+y
+...
+>>> add(20)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: add() missing 1 required positional argument: 'y'
+>>> add(20, 30)
+50
+>>> add(y=30, x=20)
+50
+>>> add(20, y=30)
+50
+>>> def add1(x, y=100):
+...     return x+y
+...
+>>> add1(20)
+120
+>>> add1(20, 30)
+50
+>>> sum([1,2,3])
+6
+>>> mean = (1+2+3)/3
+>>> mean
+2.0
+>>> sd = (1-mean)^2 + (2-mean)^2+(3-mean)^2
+KeyboardInterrupt
+>>> quit()
+
+D:\handson>python
+Python 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64 bit
+(AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import mex
+>>> lst = [1,2,3]
+>>> mex.mean(lst)
+2.0
+>>> mex.sd(lst)
+0.816496580927726
+>>> mex.sd
+<function sd at 0x0000009D67E06F78>
+>>> mex.sd(lst)
+0.816496580927726
+>>>
+>>> quit()
+
+D:\handson>python
+Python 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64 bit
+(AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> def p(x):
+...     return x+y
+...
+>>> p(20)  #20 or error or idk
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 2, in p
+NameError: name 'y' is not defined
+>>> y = 100
+>>> p(20)  #20 or 120 or error or idk
+120
+>>> #LGB
+>>> #LEGB
+>>>
+>>> def m(x):
+...     y = x
+...
+>>> m(30) # what would be the value of y? 30 or 100?
+>>> y
+100
+>>> def m(x):
+...     global y
+...     y = x
+...
+>>> m(3)
+>>> y
+3
+>>> s = "OK"
+>>> len = 2
+>>> print( len(s) )
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'int' object is not callable
+>>> del len
+>>> print( len(s) )
+2
+>>> def add(x,y):
+...     return x+y
+...
+>>> add(20,30)
+50
+>>> def add(x,y):
+...     x+y
+...
+>>> add(20,30)
+>>>
+>>>
+>>> def mean(lst):
+...     """Sum of lst/length of lst"""
+...     return sum(lst)/len(lst)
+...
+>>> mean([1,2,3,4])
+2.5
+>>> mean(1,2,3,4)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: mean() takes 1 positional argument but 4 were given
+>>> def mean(*lst):
+...     return sum(lst)/len(lst)
+...
+>>> mean(1,2,3,4)
+2.5
+>>>
+>>> a = 1
+>>> b = 2
+>>> a, b = b,a
+>>> a
+2
+>>> b
+1
+>>> a, *b, c = 1,2,3,4
+>>> a,b,c
+(1, [2, 3], 4)
+>>> a, *b, c = 1,2
+>>> a,b,c
+(1, [], 2)
+>>> lst = [1,2,3]
+>>> mean(lst)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 2, in mean
+TypeError: unsupported operand type(s) for +: 'int' and 'list'
+>>> mean(lst[0], lst[1], lst[2])
+2.0
+>>> mean(*lst)
+2.0
+>>> print(1,2,3,4)
+1 2 3 4
+>>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
