@@ -21,6 +21,21 @@ def sd(lst):
     for e in lst:
         out.append( square(e-m) )
     return math.sqrt( sum(out) /len(out))
+    
+import glob, os.path 
+def getFilenameWithMaxSize(path):
+    #Step-1 
+    files = glob.glob(path+r"\*")
+    #Step-2
+    filesWithSize = {}
+    for file in files:
+        if os.path.isfile(file):
+            filesWithSize[file] = os.path.getsize(file)
+    #step-3
+    s_files = sorted(filesWithSize, 
+        key= lambda k: filesWithSize[k])
+    return s_files[-1]
+   
 
     
 
