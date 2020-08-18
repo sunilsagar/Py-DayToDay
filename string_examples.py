@@ -20,10 +20,8 @@ s = "Hello World"
 # e - 1
 # l - 3
 # ...
-
 #Take each char (ch1) from s  #for loop 
 s = "Hello World"
-        
 for ch1 in set(s):
     #initilize counter
     counter = 0     
@@ -55,15 +53,18 @@ for ch1 in set(s):
 #[8, 7, 6, 5, 4, 3, 2, 1]
 #
 ####################################################
-#[]  list - Duplicates-P, Indexing - P, Insertion Ordered-P, Mutable
-#()      tuple - immutable, ---above---
-#  
-#{}  set - Duplicates - NP, Indexing-NP, Insertion ordered-NP, Mutable
-#      frozenset - immutable, ---above--
-#
-#--------------------------
-#dict 
-#
+# []  list - Duplicates-P, Indexing - P, Insertion Ordered-P, Mutable
+# ()      tuple - immutable, ---above---
+#   
+# {}  set - Duplicates - NP, Indexing-NP, Insertion ordered-NP, Mutable
+#       frozenset - immutable, ---above--
+# 
+# --------------------------
+# {k:v} dict - list of (Key, value) pairs
+#        all keys are like set - unique 
+#        value could be anything 
+#        Searching - Given Key , get it's value - O(1), not like O(N)
+
 
 
 

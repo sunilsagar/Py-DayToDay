@@ -1,0 +1,772 @@
+Microsoft Windows [Version 6.3.9600]
+(c) 2013 Microsoft Corporation. All rights reserved.
+
+D:\handson>python
+Python 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64 bit
+(AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> o = [(1, 2), (3, 4), (5, 7, 20)]
+>>> o[-1].append(70)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'tuple' object has no attribute 'append'
+>>> o[-1]
+(5, 7, 20)
+>>> o.append(30)
+>>> o
+[(1, 2), (3, 4), (5, 7, 20), 30]
+>>> o[-1]
+30
+>>> o = [(1, 2), (3, 4), (5, 7, 20)]
+>>> o[-1]
+(5, 7, 20)
+>>> tmp = o[-1]
+>>> dir(tmp)
+['__add__', '__class__', '__contains__', '__delattr__', '__dir__', '__doc__', '_
+_eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs
+__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__'
+, '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_e
+x__', '__repr__', '__rmul__', '__setattr__', '__sizeof__', '__str__', '__subclas
+shook__', 'count', 'index']
+>>> type(tmp)
+<class 'tuple'>
+>>> type(o)
+<class 'list'>
+>>> dir(o)
+['__add__', '__class__', '__contains__', '__delattr__', '__delitem__', '__dir__'
+, '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__'
+, '__gt__', '__hash__', '__iadd__', '__imul__', '__init__', '__init_subclass__',
+ '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__r
+educe__', '__reduce_ex__', '__repr__', '__reversed__', '__rmul__', '__setattr__'
+, '__setitem__', '__sizeof__', '__str__', '__subclasshook__', 'append', 'clear',
+ 'copy', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort
+']
+>>> o[-1] = (10,30)
+>>> o[-1].append(70)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'tuple' object has no attribute 'append'
+>>>
+>>>
+>>>
+>>> d = { 'nok' : 1, 'ok' : 2 }
+>>> ed = {}
+>>> es = set()
+>>> type(ed)
+<class 'dict'>
+>>> k = 'nok'
+>>> d[k]
+1
+>>> d['nok']
+1
+>>> d['nok'] = 20
+>>> d
+{'nok': 20, 'ok': 2}
+>>> d['new'] = 2   #first time assignment is adding a new key
+>>> d
+{'nok': 20, 'ok': 2, 'new': 2}
+>>> len(d)
+3
+>>> 'nok' in d
+True
+>>> for k in d:
+...     print(k, d[k])
+...
+nok 20
+ok 2
+new 2
+>>> quit()
+
+D:\handson>echo > dict_examples.py
+
+D:\handson>python dict_examples.py
+{'Hello': 3, 'World': 1, 'Earth': 1, 'Everyone': 1}
+
+D:\handson>python
+Python 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64 bit
+(AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> d = { 'nok' : 1, 'ok' : 2 }
+>>> del d['nok']
+>>> lst = [1,2,3]
+>>> del lst[0]
+>>> lst
+[2, 3]
+>>> d
+{'ok': 2}
+>>> #Join at 11:30
+>>>
+>>> d['new'] = 2   #first time assignment is adding a new key
+>>> a = "other_key"
+>>> d
+{'ok': 2, 'new': 2}
+>>> #{'ok': 2, 'new': 2, "other_key" : 20}
+>>> d[a] = 20 #or d['a'] = 20
+>>> d
+{'ok': 2, 'new': 2, 'other_key': 20}
+>>> d
+{'ok': 2, 'new': 2, 'other_key': 20}
+>>> d.keys()
+dict_keys(['ok', 'new', 'other_key'])
+>>> d.values()
+dict_values([2, 2, 20])
+>>> d.items()
+dict_items([('ok', 2), ('new', 2), ('other_key', 20)])
+>>> for k in d:
+...     print(k, d[k])
+...
+ok 2
+new 2
+other_key 20
+>>> for kv in d.items():
+...     print(kv[0], kv[1])
+...
+ok 2
+new 2
+other_key 20
+>>> for k, v in d.items():
+...     print(k, v)
+...
+ok 2
+new 2
+other_key 20
+>>> lsw = [ ('ABC', 2, 20), ('XYZ', 3, 30)]
+>>> for t in lsw:
+...     print(t[0], t[1], t[2])
+...
+ABC 2 20
+XYZ 3 30
+>>> for n,a,s in lsw:
+...     print(n, a, s)
+...
+ABC 2 20
+XYZ 3 30
+>>> type(lsw)
+<class 'list'>
+>>>
+>>> lst1 = [ 'a', 'b']
+>>> lst2 = [10,20]
+>>> list(zip(lst1,lst2))
+[('a', 10), ('b', 20)]
+>>> list(enumerate(lst1))
+[(0, 'a'), (1, 'b')]
+>>> list(enumerate(lst2))
+[(0, 10), (1, 20)]
+>>> for t in list(enumerate(lst2)):
+...     print(t[1])
+...
+10
+20
+>>> list(enumerate(lst2))[0]
+(0, 10)
+>>> list(enumerate(lst2))[1]
+(1, 20)
+>>> quit()
+
+D:\handson>python
+Python 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64 bit
+(AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> quit()
+
+D:\handson>C:\Python3.7\python
+The system cannot find the path specified.
+
+D:\handson>C:\Python37\python
+Python 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64 bit
+(AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> quit()
+
+D:\handson>python
+Python 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64 bit
+(AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> lst1 = [ 'a']
+>>> lst2 = [10,20]
+>>> list(zip(lst1,lst2))
+[('a', 10)]
+>>>
+>>> import glob
+>>> glob.glob("*")
+['commands.txt', 'DAY1.txt', 'dict_examples.py', 'first.py', 'installation_jpmc.
+txt', 'list_examples.py', 'README.md', 'string_examples.py']
+>>> glob.glob(r"D:\handson\*")
+['D:\\handson\\commands.txt', 'D:\\handson\\DAY1.txt', 'D:\\handson\\dict_exampl
+es.py', 'D:\\handson\\first.py', 'D:\\handson\\installation_jpmc.txt', 'D:\\hand
+son\\list_examples.py', 'D:\\handson\\README.md', 'D:\\handson\\string_examples.
+py']
+>>> glob.glob(r"D:\handson\data\*")
+['D:\\handson\\data\\boston.csv', 'D:\\handson\\data\\empty_book.xlsx', 'D:\\han
+dson\\data\\example-handson.csv', 'D:\\handson\\data\\example-handson.xml', 'D:\
+\handson\\data\\example.csv', 'D:\\handson\\data\\example.docx', 'D:\\handson\\d
+ata\\example.html', 'D:\\handson\\data\\example.json', 'D:\\handson\\data\\examp
+le.pdf', 'D:\\handson\\data\\example.pptx', 'D:\\handson\\data\\example.xml', 'D
+:\\handson\\data\\example1.html', 'D:\\handson\\data\\example1.pdf', 'D:\\handso
+n\\data\\example1.xml', 'D:\\handson\\data\\having-chart-placeholder.pptx', 'D:\
+\handson\\data\\having-table-placeholder.pptx', 'D:\\handson\\data\\iris.csv', '
+D:\\handson\\data\\monty-truth.png', 'D:\\handson\\data\\Nifty-17_Years_Data-V1.
+xlsx', 'D:\\handson\\data\\population.csv', 'D:\\handson\\data\\python_logo.png'
+, 'D:\\handson\\data\\q.html', 'D:\\handson\\data\\sales_transactions.xlsx', 'D:
+\\handson\\data\\ver.csv', 'D:\\handson\\data\\watermark.pdf', 'D:\\handson\\dat
+a\\window.csv', 'D:\\handson\\data\\WindowsUpdate.log']
+>>> glob.glob(r"data\*")
+['data\\boston.csv', 'data\\empty_book.xlsx', 'data\\example-handson.csv', 'data
+\\example-handson.xml', 'data\\example.csv', 'data\\example.docx', 'data\\exampl
+e.html', 'data\\example.json', 'data\\example.pdf', 'data\\example.pptx', 'data\
+\example.xml', 'data\\example1.html', 'data\\example1.pdf', 'data\\example1.xml'
+, 'data\\having-chart-placeholder.pptx', 'data\\having-table-placeholder.pptx',
+'data\\iris.csv', 'data\\monty-truth.png', 'data\\Nifty-17_Years_Data-V1.xlsx',
+'data\\population.csv', 'data\\python_logo.png', 'data\\q.html', 'data\\sales_tr
+ansactions.xlsx', 'data\\ver.csv', 'data\\watermark.pdf', 'data\\window.csv', 'd
+ata\\WindowsUpdate.log']
+>>> len(glob.glob(r"data\*"))
+27
+>>> f = open(r"D:\handson\data\iris.csv", "rt")
+>>> lines = f.readlines()
+>>> f.close()
+>>> with open(r"D:\handson\data\iris.csv", "rt") as f:
+...     lines = f.readlines()
+...
+>>> with open(r"D:\handson\data\iris.csv", "rt") as f:
+...     lines = f.readlines()
+...     with open(r"D:\handson\data\iris.csv.bk", "wt") as f2:
+...             f2.writelines(lines)
+...
+>>> glob.glob(r"data\*.bk")
+['data\\iris.csv.bk']
+>>> dir(f)
+['_CHUNK_SIZE', '__class__', '__del__', '__delattr__', '__dict__', '__dir__', '_
+_doc__', '__enter__', '__eq__', '__exit__', '__format__', '__ge__', '__getattrib
+ute__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '
+__iter__', '__le__', '__lt__', '__ne__', '__new__', '__next__', '__reduce__', '_
+_reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclassho
+ok__', '_checkClosed', '_checkReadable', '_checkSeekable', '_checkWritable', '_f
+inalizing', 'buffer', 'close', 'closed', 'detach', 'encoding', 'errors', 'fileno
+', 'flush', 'isatty', 'line_buffering', 'mode', 'name', 'newlines', 'read', 'rea
+dable', 'readline', 'readlines', 'reconfigure', 'seek', 'seekable', 'tell', 'tru
+ncate', 'writable', 'write', 'write_through', 'writelines']
+>>> import shutil
+>>> dir(shutil)
+['Error', 'ExecError', 'ReadError', 'RegistryError', 'SameFileError', 'SpecialFi
+leError', '_ARCHIVE_FORMATS', '_BZ2_SUPPORTED', '_LZMA_SUPPORTED', '_UNPACK_FORM
+ATS', '_ZLIB_SUPPORTED', '__all__', '__builtins__', '__cached__', '__doc__', '__
+file__', '__loader__', '__name__', '__package__', '__spec__', '_basename', '_che
+ck_unpack_options', '_copyxattr', '_destinsrc', '_ensure_directory', '_find_unpa
+ck_format', '_get_gid', '_get_uid', '_make_tarball', '_make_zipfile', '_ntuple_d
+iskusage', '_rmtree_safe_fd', '_rmtree_unsafe', '_samefile', '_unpack_tarfile',
+'_unpack_zipfile', '_use_fd_functions', 'chown', 'collections', 'copy', 'copy2',
+ 'copyfile', 'copyfileobj', 'copymode', 'copystat', 'copytree', 'disk_usage', 'e
+rrno', 'fnmatch', 'get_archive_formats', 'get_terminal_size', 'get_unpack_format
+s', 'getgrnam', 'getpwnam', 'ignore_patterns', 'make_archive', 'move', 'nt', 'os
+', 'register_archive_format', 'register_unpack_format', 'rmtree', 'stat', 'sys',
+ 'unpack_archive', 'unregister_archive_format', 'unregister_unpack_format', 'whi
+ch']
+>>> type(lines)
+<class 'list'>
+>>> type(lines[0])
+<class 'str'>
+>>> lines[0:5]
+['SepalLength,SepalWidth,PetalLength,PetalWidth,Name\n', '5.1,3.5,1.4,0.2,Iris-s
+etosa\n', '4.9,3.0,1.4,0.2,Iris-setosa\n', '4.7,3.2,1.3,0.2,Iris-setosa\n', '4.6
+,3.1,1.5,0.2,Iris-setosa\n']
+>>> #Join at 1:45PM
+>>> headers = lines[0]
+>>> rows = lines[1:]
+>>> rows[0:5]
+['5.1,3.5,1.4,0.2,Iris-setosa\n', '4.9,3.0,1.4,0.2,Iris-setosa\n', '4.7,3.2,1.3,
+0.2,Iris-setosa\n', '4.6,3.1,1.5,0.2,Iris-setosa\n', '5.0,3.6,1.4,0.2,Iris-setos
+a\n']
+>>> e = '5.1,3.5,1.4,0.2,Iris-setosa\n'
+>>> e.split(",")[-1]
+'Iris-setosa\n'
+>>> e.strip().split(",")[-1]
+'Iris-setosa'
+>>> e.strip()
+'5.1,3.5,1.4,0.2,Iris-setosa'
+>>> e.strip().split(",")
+['5.1', '3.5', '1.4', '0.2', 'Iris-setosa']
+>>> e.strip().split(",")[-1]
+'Iris-setosa'
+>>> out = set()
+>>> for e in rows:
+...     out.add( e.strip().split(",")[-1] )
+...
+>>> len(out)
+3
+>>> out
+{'Iris-setosa', 'Iris-versicolor', 'Iris-virginica'}
+>>> rows = lines[1:]
+>>> out = set()
+>>> for e in rows:
+...     out.add( e.strip().split(",")[-1] )
+...
+>>> len(out)
+3
+>>> lst = [1,2,3,4]
+>>> min(lst)
+1
+>>> max(lst)
+4
+>>> sum(lst)
+10
+>>> output = {}
+>>>
+>>> for name in out:   #name eg Iris-setosa
+...     el =[]
+...     for e in rows:
+...         columns = e.strip().split(",")
+...         if columns[-1] == name:
+...             el.append( columns[0] )
+...     output[name] = min(el)
+...
+>>> output
+{'Iris-setosa': '4.3', 'Iris-versicolor': '4.9', 'Iris-virginica': '4.9'}
+>>> output = {}
+>>>
+>>> for name in out:   #name eg Iris-setosa
+...     el =[]
+...     for e in rows:
+...         columns = e.strip().split(",")
+...         if columns[-1] == name:
+...             el.append( float(columns[0]) )
+...     output[name] = min(el)
+...
+>>> output
+{'Iris-setosa': 4.3, 'Iris-versicolor': 4.9, 'Iris-virginica': 4.9}
+>>> #What min SepalLength for each Name
+>>> name = 'Iris-setosa'
+>>> #'SepalLength,SepalWidth,PetalLength,PetalWidth,Name\n'
+>>> el = []
+>>> rows[0:5]
+['5.1,3.5,1.4,0.2,Iris-setosa\n', '4.9,3.0,1.4,0.2,Iris-setosa\n', '4.7,3.2,1.3,
+0.2,Iris-setosa\n', '4.6,3.1,1.5,0.2,Iris-setosa\n', '5.0,3.6,1.4,0.2,Iris-setos
+a\n']
+>>> e = '5.1,3.5,1.4,0.2,Iris-setosa\n'
+>>> e.strip().split(",")[0]
+'5.1'
+>>> float(e.strip().split(",")[0])
+5.1
+>>> if e.strip().split(",")[-1] == name:
+...     print( float(e.strip().split(",")[0]) )
+...
+5.1
+>>> for e in rows:
+...     if e.strip().split(",")[-1] == name:
+...             el.append( float(e.strip().split(",")[0]) )
+...
+>>> el[0:5]
+[5.1, 4.9, 4.7, 4.6, 5.0]
+>>> output = {}
+>>> for name in out:
+...     el = []
+...     for e in rows:
+...     if e.strip().split(",")[-1] == name:
+  File "<stdin>", line 4
+    if e.strip().split(",")[-1] == name:
+                                       ^
+IndentationError: unindent does not match any outer indentation level
+>>>             el.append( float(e.strip().split(",")[0]) )
+  File "<stdin>", line 1
+    el.append( float(e.strip().split(",")[0]) )
+    ^
+IndentationError: unexpected indent
+>>> output = {}
+>>> for name in out:
+...     el = []
+...     for e in rows:
+...             if e.strip().split(",")[-1] == name:
+...                     el.append( float(e.strip().split(",")[0]) )
+...     output[name] = min (el)
+...
+>>> output
+{'Iris-setosa': 4.3, 'Iris-versicolor': 4.9, 'Iris-virginica': 4.9}
+>>> quit()
+
+D:\handson>python
+Python 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64 bit
+(AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import pandas
+>>> iris = pandas.read_csv(r"data\iris.csv")
+>>> len(dir(iris))
+448
+>>> type(iris)
+<class 'pandas.core.frame.DataFrame'>
+>>> iris.head()
+   SepalLength  SepalWidth  PetalLength  PetalWidth         Name
+0          5.1         3.5          1.4         0.2  Iris-setosa
+1          4.9         3.0          1.4         0.2  Iris-setosa
+2          4.7         3.2          1.3         0.2  Iris-setosa
+3          4.6         3.1          1.5         0.2  Iris-setosa
+4          5.0         3.6          1.4         0.2  Iris-setosa
+>>> iris["Name"].unique()
+array(['Iris-setosa', 'Iris-versicolor', 'Iris-virginica'], dtype=object)
+>>> iris.groupby('Name').agg({'SepalLength':'min'})
+                 SepalLength
+Name
+Iris-setosa              4.3
+Iris-versicolor          4.9
+Iris-virginica           4.9
+>>> f = open(r"D:\handson\data\iris.csv", "rt")
+>>> lines = f.readlines()
+>>> f.close()
+>>> rowsd = []
+>>> for e in lines[1:]:
+...     columns = e.strip().split(",")
+...     rowsd.append( [float(columns[0]), float(columns[1]),
+...         float(columns[2]),float(columns[3]),columns[4]] )
+...
+>>> rowsd[0:5]
+[[5.1, 3.5, 1.4, 0.2, 'Iris-setosa'], [4.9, 3.0, 1.4, 0.2, 'Iris-setosa'], [4.7,
+ 3.2, 1.3, 0.2, 'Iris-setosa'], [4.6, 3.1, 1.5, 0.2, 'Iris-setosa'], [5.0, 3.6,
+1.4, 0.2, 'Iris-setosa']]
+>>> import sqlite3
+>>> con = sqlite3.connect("iris.db")
+>>> cur = con.cursor()
+>>> cur.execute(""" create table iris (sl double, sw double, pl double, pw doubl
+e,
+...     name string)""")
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+>>> for r in rowsd:
+...     cur.execute("""insert into iris values(?,?,?,?,?)""", r)
+...
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+<sqlite3.Cursor object at 0x000000F63E9EEE30>
+>>> con.commit()
+>>> q = cur.execute("""select name, min(sl) from iris group by name""")
+>>> res = list(q.fetchall())
+>>> print(res)
+[('Iris-setosa', 4.3), ('Iris-versicolor', 4.9), ('Iris-virginica', 4.9)]
+>>> len(rowsd)
+150
+>>> s = "Hello"
+>>> len(s)
+5
+>>> len(dir(s))
+78
+>>> path = r"D:\handson\data\example.json"
+>>> import json
+>>> with open(path, "rt") as f:
+...     obj = json.load(f)
+...
+>>> obj
+[{'empId': 1, 'details': {'firstName': 'John', 'lastName': 'Smith', 'isAlive': T
+rue, 'age': 25, 'salary': 123.5, 'address': {'streetAddress': '21 2nd Street', '
+city': 'New York', 'state': 'NY', 'postalCode': '10021-3100'}, 'phoneNumbers': [
+{'type': 'home', 'number': '212 555-1234'}, {'type': 'office', 'number': '646 55
+5-4567'}, {'type': 'mobile', 'number': '123 456-7890'}], 'children': [], 'spouse
+': None}}, {'empId': 20, 'details': {'firstName': 'Johns', 'lastName': 'Smith',
+'isAlive': True, 'age': 25, 'salary': 123.5, 'address': {'streetAddress': '21 2n
+d Street', 'city': 'New York', 'state': 'CL', 'postalCode': '10021-3100'}, 'phon
+eNumbers': [{'type': 'home', 'number': '212 555-1234'}, {'type': 'office', 'numb
+er': '646 555-4567'}, {'type': 'mobile', 'number': '123 456-7890'}], 'children':
+ [], 'spouse': None}}]
+>>> import pp
+>>> pp.pprint(obj)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: module 'pp' has no attribute 'pprint'
+>>> pp.print(obj)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: module 'pp' has no attribute 'print'
+>>> import pprint
+>>> pprint.pprint(obj)
+[{'details': {'address': {'city': 'New York',
+                          'postalCode': '10021-3100',
+                          'state': 'NY',
+                          'streetAddress': '21 2nd Street'},
+              'age': 25,
+              'children': [],
+              'firstName': 'John',
+              'isAlive': True,
+              'lastName': 'Smith',
+              'phoneNumbers': [{'number': '212 555-1234', 'type': 'home'},
+                               {'number': '646 555-4567', 'type': 'office'},
+                               {'number': '123 456-7890', 'type': 'mobile'}],
+              'salary': 123.5,
+              'spouse': None},
+  'empId': 1},
+ {'details': {'address': {'city': 'New York',
+                          'postalCode': '10021-3100',
+                          'state': 'CL',
+                          'streetAddress': '21 2nd Street'},
+              'age': 25,
+              'children': [],
+              'firstName': 'Johns',
+              'isAlive': True,
+              'lastName': 'Smith',
+              'phoneNumbers': [{'number': '212 555-1234', 'type': 'home'},
+                               {'number': '646 555-4567', 'type': 'office'},
+                               {'number': '123 456-7890', 'type': 'mobile'}],
+              'salary': 123.5,
+              'spouse': None},
+  'empId': 20}]
+>>> path = r"D:\handson\data\example.json"
+>>> import json
+>>> with open(path, "rt") as f:
+...     obj = json.load(f)
+...
+>>> import pprint
+>>> pprint.pprint(obj)
+[{'details': {'address': {'city': 'New York',
+                          'postalCode': '10021-3100',
+                          'state': 'NY',
+                          'streetAddress': '21 2nd Street'},
+              'age': 25,
+              'children': [],
+              'firstName': 'John',
+              'isAlive': True,
+              'lastName': 'Smith',
+              'phoneNumbers': [{'number': '212 555-1234', 'type': 'home'},
+                               {'number': '646 555-4567', 'type': 'office'},
+                               {'number': '123 456-7890', 'type': 'mobile'}],
+              'salary': 123.5,
+              'spouse': None},
+  'empId': 1},
+ {'details': {'address': {'city': 'New York',
+                          'postalCode': '10021-3100',
+                          'state': 'CL',
+                          'streetAddress': '21 2nd Street'},
+              'age': 25,
+              'children': [],
+              'firstName': 'Johns',
+              'isAlive': True,
+              'lastName': 'Smith',
+              'phoneNumbers': [{'number': '212 555-1234', 'type': 'home'},
+                               {'number': '646 555-4567', 'type': 'office'},
+                               {'number': '123 456-7890', 'type': 'mobile'}],
+              'salary': 123.5,
+              'spouse': None},
+  'empId': 20}]
+>>>
+>>> type(obj)
+<class 'list'>
+>>> type(obj[0])
+<class 'dict'>
+>>>
+>>> o = []
+>>> for emp in obj:
+...     o.append( emp['empId'])
+...
+>>> o
+[1, 20]
+>>> o = []
+>>> for emp in obj:
+...     o.append( emp['details']['firstName'] + emp['details']['lastName'])
+...
+>>> o
+['JohnSmith', 'JohnsSmith']
+>>> #Give me all states from obj objects
+>>> o = []
+>>> for emp in obj:
+...     o.append( emp['details']['address']['state'])
+...
+>>> o
+['NY', 'CL']
+>>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
