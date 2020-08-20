@@ -1,0 +1,9 @@
+print       __str__ 
++           __add__ 
+==          __eq__
+in          __contains__ 
+for         __iter__/__next__
+with        __enter__/__exit__
+[]          __getitem__ 
+[] = 2      __setitem__
+fun()       __call__ 
