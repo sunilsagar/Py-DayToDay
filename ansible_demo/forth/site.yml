@@ -1,0 +1,15 @@
+# ansible-playbook -i hosts site.yml --syntax-check
+- hosts: all 
+  vars:
+    var1: from_playbook
+    var5: 2
+  vars_files:
+    - files/external_vars.yml  # brings var3
+    #- files/another.yml
+  roles:
+    - common   # brings var2
+    #- another_role
+  tasks:
+    - name: Display Vars
+      debug:
+        msg: "var1={{ var1 }} var2={{ var2 }} var3={{ var3 }} var4={{ var4 }}"

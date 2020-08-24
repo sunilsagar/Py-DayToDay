@@ -1,0 +1,19 @@
+# ansible-playbook -i hosts third.yml
+- hosts: all 
+  vars:
+    input_list: ["one", "two"]
+  tasks:
+    - name: First loop
+      shell: "echo {{ item }}"
+      #loop:
+      #  - one 
+      #  - two 
+      loop: "{{ input_list }}"
+      register: output 
+    - debug:
+        msg: "{{ output }}"
+    - name: check output from above 
+      debug:
+        msg: "The command ({{ item.cmd}}) is success"
+      when: item.rc == 0
+      loop: "{{ output.results }}"

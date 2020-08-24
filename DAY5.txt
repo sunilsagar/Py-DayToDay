@@ -1,0 +1,73 @@
+ANSIBLE_NODE_NAME server1
+ANSIBLE_USER      ftpuser
+it's password     ftpuser
+
+
+$ mkdir first
+$ cd first
+$ mkdir -p host_vars
+$ touch host_vars/gie2vgso195030.yml
+$ cat hosts
+gie2vgso195030
+$ ansible-vault encrypt_string ftpuser --ask-vault-pass
+$ vi host_vars/gie2vgso195030.yml
+
+
+$ cat host_vars/gie2vgso195030.yml
+ansible_ssh_user: ftpuser
+ansible_ssh_pass: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          36656536646363373034343762383363643463396163393033396261663137666537376564623536
+          3031356533376264653831653665303866333864633036360a373566313962666261366365376361
+          63343766356536303532643636346334323162613230663539343636313265366366363962656538
+          3166336163663532380a663761383533323764313239313139383438383530313162626366653738
+          6634
+
+$ ansible all -i hosts -m ping --ask-vault-pass
+Vault password:
+server1 | SUCCESS => {
+    "changed": false,
+    "ping": "pong"
+}
+
+# dict of dict - { 'ok': {'str': 'world'}, 'nok': [2, 3]}
+ok: 
+  str: world
+nok: 
+  - 2
+  - 3
+new: hello
+
+#List - [['ok', 'hello', True], 2, 3.0]
+- - ok
+  - hello
+  - false
+- 2
+- 3.0
+# complex - [['OK', {'str': 2}, {True: {'ok':[True, False, 3], 'args': 3}}], 2.0, [3.0]]
+- - OK
+  - str: 2
+  - True:
+     ok:
+      - True
+      - False
+      - 3
+     args: 3
+- 2.0
+- - 3.0
+
+$ ansible all -i hosts -m command -a "/bin/date"
+#To check help of 'command' module 
+$ ansible-doc command
+#List of all modules 
+$ ansible-doc -l
+
+
+
+
+
+
+
+
+
+
