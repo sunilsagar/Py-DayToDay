@@ -8,7 +8,7 @@ $ cd first
 $ mkdir -p host_vars
 $ touch host_vars/gie2vgso195030.yml
 $ cat hosts
-gie2vgso195030
+gie2vgso195030 
 $ ansible-vault encrypt_string ftpuser --ask-vault-pass
 $ vi host_vars/gie2vgso195030.yml
 

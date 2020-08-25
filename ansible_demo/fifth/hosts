@@ -1,0 +1,4 @@
+server1 ansible_ssh_user=ftpuser ansible_ssh_pass=ftpuser
+server2 ansible_ssh_user=ftpuser ansible_ssh_pass=ftpuser
+server3 ansible_ssh_user=ftpuser ansible_ssh_pass=ftpuser
+server4 ansible_ssh_user=ftpuser ansible_ssh_pass=ftpuser

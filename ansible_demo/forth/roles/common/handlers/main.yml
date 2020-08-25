@@ -1,0 +1,6 @@
+- name: Do something after this
+  debug:
+    msg: Notified
+- name: another handler
+  debug:
+    msg: Notified Again

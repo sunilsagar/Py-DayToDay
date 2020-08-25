@@ -5,10 +5,10 @@
   tasks:
     - name: First loop
       shell: "echo {{ item }}"
-      #loop:
-      #  - one 
-      #  - two 
-      loop: "{{ input_list }}"
+      loop:
+        - one 
+        - two 
+      #loop: "{{ input_list }}"
       register: output 
     - debug:
         msg: "{{ output }}"
