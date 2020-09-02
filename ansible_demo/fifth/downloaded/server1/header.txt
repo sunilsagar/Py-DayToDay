@@ -1,9 +1,0 @@
-Key value
-/usr/local/bin:/usr/bin:/bin:/usr/games
-ftpuser
-/usr/local/bin:/usr/bin:/bin:/usr/games
-ftpuser
-/usr/local/bin:/usr/bin:/bin:/usr/games
-ftpuser
-/usr/local/bin:/usr/bin:/bin:/usr/games
-ftpuser

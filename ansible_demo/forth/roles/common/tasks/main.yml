@@ -1,6 +1,0 @@
-- name: Get date from remote 
-  command: /bin/date 
-  notify:
-    - Do something after this 
-    - another handler
-    - Do something after this

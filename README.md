@@ -1,3 +1,3 @@
-# Code repository for Python and Ansible batch 17Aug-25Aug 2020
+# Code repository for Python basic JPMC batch 14Sept-17Sept 2020
 
 For older batches, check other tags of this Repository

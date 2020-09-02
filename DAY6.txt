@@ -1,5 +1,0 @@
-$ mkdir -p vars
-$ echo 'pkg: apache2' > vars/Debian.yml
-$ echo 'pkg: httpd' > vars/RedHat.yml
-$ echo 'pkg: httpd' > vars/os_defaults.yml
-$ echo '<html><body>Hello!</body></html>' > index.html
