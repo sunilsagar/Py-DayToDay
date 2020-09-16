@@ -42,14 +42,25 @@ for ch1 in set(s):
 ---------------
 {key: value} dict - Key and value pairs - Keys are like set , 
              Value can be anything
-             Most Used usecase - Given Key, get Value ~ O(1),  NOT O(N)
+             Most Used usecase - Given Key, get Value ~ constant time
 
 
 
+#Iris.csv 
+filename = r"D:\handson\data\iris.csv"
+with open(filename, "rt") as f:
+    lines = f.readlines()
 
+rows = lines[1:]
+e = '5.1,3.5,1.4,0.2,Iris-setosa\n'
+e.strip().split(",")
+e.strip().split(",")[-1]
+output = set()
+for e in rows:
+    output.add( e.strip().split(",")[-1] )
 
-
-
+print(output)
+#
 
 
 
