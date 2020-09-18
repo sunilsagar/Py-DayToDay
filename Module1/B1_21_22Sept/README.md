@@ -1,3 +1,3 @@
-# Code repository for All batches of Py ML/pyspark (Jpmc) from 21 Sept to 13 Oct
+# Code repository for Module 1 Batch 1 21-22 Sept 2020
 
-For older batches, check other tags of this Repository
+For other batches, check other folders of this Repository
