@@ -1,0 +1,3 @@
+Activate aiml 
+$ Anaconda3\Scripts\activate aiml
+$ jupyter nbconvert --to script *.ipynb
